@@ -1,0 +1,83 @@
+<!-- 
+     Header.html
+     Authors: Kendra Dezenosky, Ibrahim Mekraldi, Solomon Shleifman, Danyao Wang, Anuja Thomas
+     Date created: February 10, 2020
+     The header includes the bootstrap navbar to be included in each page.
+     It includes a button to sign in and once signed in, includes buttons for Home, New List, and My Lists
+-->
+
+<title>Clipp</title>
+<br /><br /><br /><br />
+<!-- navbar banner created with buttons -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark navbar-right">
+        <a class="navbar-brand" href="HomePage.php"><img src="images/logo.png" style="width: 150px;" class="d-inline-block align-top" alt=""></a>
+        <!-- Toggler added with a drop down. If display is not big enough for all buttons, a toggler will be available to collapse the buttons -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBarOptions" aria-controls="navBarOptions" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse my-2 navbar-right" id="navBarOptions">
+            <!-- Buttons for each feature. Buttons given class of 'hide' if they are unavailable prior to login -->
+            <div class="navbar-nav navbar-right">
+                <button class="nav-item nav-link active btn btn-dark" onclick="location.href='HomePage.php'" style="margin: 5px;">Home<span class="sr-only">(current)</span></button>
+                <button class="btn btn-dark hide" id="newListBtn" style="margin: 5px;" data-toggle="modal" data-target="#newListModalCenter" disabled>New List</button>
+                <button class="btn btn-dark hide" id="myListsBtn" style="margin: 5px;"disabled onclick="location.href='MyLists.php'">My Favourite Lists</button>
+                <!-- <button class="btn btn-dark" id="loginBtn" style="margin: 5px;" data-toggle="modal" data-target="#loginModalCenter">Sign In</button> -->
+                <button class="btn btn-dark" id="loginBtn" style="margin: 5px;border-radius: 20px;background-color: rgba(0, 0, 0, 0.2);" data-toggle="modal" data-target="#loginModalCenter">Sign In</button>
+            </div>
+        </div>
+</nav>
+
+
+     <!-- New List Pop Up/Modal -->
+     <div class="modal fade" id="newListModalCenter" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+             <div class="modal-content">
+                  <div class="modal-header">
+                       <!-- Pop up name set and Font Awesome icon added -->
+                       <span id="modalCenterTitle"><i class="fas fa-shopping-cart"></i> Shopping List</span>
+                       <!-- Close button created -->
+                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                       </button>
+                  </div>
+
+                  <!-- Form created with labels and Font Awesome icons to gather data about new list -->
+                  <div class="main">
+                       <form class="form" id="newListForm" action="NewList.php" method="GET">
+                            <div class="ui segment">
+                                 <div class="field">
+                                      <div class="ui left icon input">
+                                           <label id="popUpLabel"><i class="fas fa-carrot"></i> List Name</label>
+                                           <input type="text" name="listName" id="listName" style="width: 214px;">
+                                      </div>
+                                 </div>
+                                 <h5></h5>
+                                 <div class="field">
+                                      <div class="ui left icon input">
+                                           <label id="popUpLabel" for="postalCode"><i
+                                                     class="fas fa-map-marker-alt"></i> Postal Code</label>
+                                           <input type="postalcode" name="postalCode" id="postalCode" style="width: 214px;">
+                                      </div>
+                                 </div>
+                                 <h4></h4>
+                                 <div class="field">
+                                      <div class="ui left icon input"></div>
+                                      <label id="popUpLabel"><i class="fas fa-store"></i> Number of stores</label>
+                                      <select name="numStores" id="numStores">
+                                           <option value="1">1</option>
+                                           <option value="2">2</option>
+                                           <option value="3">3</option>
+                                           <option value="4">4</option>
+                                      </select>
+                                 </div>
+                                 <div class="createButtonField">
+                                      <input type="submit" class="btn btn-dark btn-secondary" id="createButton">
+                                 </div>
+                            </div>
+                       </form>
+                  </div>
+             </div>
+        </div>
+   </div>
+
+</html>
